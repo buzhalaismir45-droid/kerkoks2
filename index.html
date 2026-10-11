@@ -1,0 +1,551 @@
+
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KerkoKS | Gjej profesionistin e duhur</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --red: #e63946;
+  --dark: #111827;
+  --light: #f5f6fa;
+  --gray: #667085;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+header {
+  background: white;
+  padding: 18px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 27px;
+  font-weight: 900;
+}
+
+.logo span {
+  color: var(--red);
+}
+
+nav a {
+  color: var(--dark);
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--red);
+  color: white;
+  padding: 13px 20px;
+  border: none;
+  border-radius: 9px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #c92d39;
+}
+
+.hero {
+  padding: 75px 7%;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+  background: linear-gradient(120deg, white, #fff0f1);
+}
+
+.hero h1 {
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.1;
+  margin: 20px 0;
+}
+
+.hero h1 span {
+  color: var(--red);
+}
+
+.hero p {
+  color: var(--gray);
+  font-size: 17px;
+  margin-bottom: 25px;
+}
+
+.badge {
+  color: #bd2634;
+  background: #ffe6e8;
+  padding: 7px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.form-card {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 10px 40px #0000000d;
+}
+
+.form-card h2 {
+  margin-bottom: 5px;
+}
+
+.form-card p {
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 13px 0 5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font: inherit;
+  background: white;
+}
+
+.form-card button {
+  width: 100%;
+  margin-top: 18px;
+}
+
+section {
+  padding: 65px 7%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-title h2 {
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.section-title p {
+  color: var(--gray);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border: 1px solid #e8e8e8;
+  border-radius: 15px;
+}
+
+.icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: var(--gray);
+  font-size: 14px;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--red);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.steps {
+  background: white;
+}
+
+.number {
+  background: var(--dark);
+  color: white;
+  display: inline-grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.plan {
+  border: 1px solid #ddd;
+}
+
+.plan.featured {
+  border: 2px solid var(--red);
+}
+
+.plan-label {
+  display: inline-block;
+  color: var(--red);
+  background: #ffe6e8;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.plan ul {
+  margin: 15px 0 0 18px;
+  color: var(--gray);
+  font-size: 14px;
+}
+
+.cta {
+  background: var(--dark);
+  color: white;
+  border-radius: 18px;
+  padding: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.cta p {
+  color: #cbd0da;
+  margin-top: 8px;
+}
+
+footer {
+  background: #0b1220;
+  color: white;
+  padding: 30px 7%;
+  font-size: 13px;
+}
+
+footer p {
+  color: #aeb7c5;
+  margin-top: 8px;
+}
+
+.notice {
+  display: none;
+  background: #e4f7ed;
+  color: #12633e;
+  padding: 14px;
+  border-radius: 9px;
+  margin-top: 15px;
+}
+
+@media (max-width: 750px) {
+  header {
+    padding: 16px 5%;
+  }
+
+  nav a:not(.nav-button) {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 45px 5%;
+  }
+
+  section {
+    padding: 45px 5%;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-title h2 {
+    font-size: 28px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="#" class="logo" style="text-decoration:none;color:#111827">
+    Kerko<span>KS</span>
+  </a>
+
+  <nav>
+    <a href="#sherbimet">Shërbimet</a>
+    <a href="#si-funksionon">Si funksionon</a>
+    <a href="#profesionistet">Për profesionistët</a>
+    <a href="#kerkesa" class="btn nav-button">Kërko shërbim</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <div>
+    <span class="badge">SHËRBIME NË KOSOVË</span>
+
+    <h1>
+      Gjej profesionistin e duhur.
+      <span>Pa humbur kohë.</span>
+    </h1>
+
+    <p>
+      KerkoKS të lidh me profesionistë për shtëpinë,
+      biznesin dhe projektet e tua. Publiko kërkesën
+      falas dhe gjej personin e duhur për punën.
+    </p>
+
+    <a href="#kerkesa" class="btn">
+      Publiko kërkesën falas →
+    </a>
+  </div>
+
+  <form class="form-card" id="requestForm">
+    <h2>Çfarë shërbimi të duhet?</h2>
+    <p>Plotëso detajet e kërkesës tënde.</p>
+
+    <label for="service">Kategoria</label>
+    <select id="service" required>
+      <option value="">Zgjidh shërbimin</option>
+      <option>Pastrim</option>
+      <option>Hidraulik</option>
+      <option>Elektricist</option>
+      <option>Ndërtim dhe renovim</option>
+      <option>Kopsht dhe oborr</option>
+      <option>Transport dhe shpërngulje</option>
+      <option>Mirëmbajtje objektesh</option>
+      <option>Tjetër</option>
+    </select>
+
+    <label for="city">Qyteti</label>
+    <select id="city" required>
+      <option value="">Zgjidh qytetin</option>
+      <option>Prishtinë</option>
+      <option>Prizren</option>
+      <option>Pejë</option>
+      <option>Gjakovë</option>
+      <option>Klinë</option>
+      <option>Ferizaj</option>
+      <option>Gjilan</option>
+      <option>Mitrovicë</option>
+      <option>Tjetër</option>
+    </select>
+
+    <label for="details">Përshkrimi i punës</label>
+    <textarea id="details" rows="3"
+      placeholder="Çfarë pune duhet të kryhet?"
+      required></textarea>
+
+    <button class="btn" type="submit">
+      Vazhdo →
+    </button>
+
+    <div class="notice" id="notice">
+      Kjo është një demo. Kërkesa nuk është dërguar
+      ende te profesionistët.
+    </div>
+  </form>
+</section>
+
+<section id="sherbimet">
+  <div class="section-title">
+    <h2>Shërbimet tona</h2>
+    <p>Gjej ndihmë për shtëpinë dhe biznesin tënd.</p>
+  </div>
+
+  <div class="cards">
+    <article class="card">
+      <div class="icon">🔧</div>
+      <h3>Riparime</h3>
+      <p>Hidraulikë, elektricistë, montime dhe riparime.</p>
+      <a href="#kerkesa">Kërko shërbim →</a>
+    </article>
+
+    <article class="card">
+      <div class="icon">🧹</div>
+      <h3>Pastrim</h3>
+      <p>Pastrim i shtëpive, zyrave dhe objekteve.</p>
+      <a href="#kerkesa">Kërko shërbim →</a>
+    </article>
+
+    <article class="card">
+      <div class="icon">🏠</div>
+      <h3>Ndërtim dhe renovim</h3>
+      <p>Lyerje, pllaka, renovime dhe punime të brendshme.</p>
+      <a href="#kerkesa">Kërko shërbim →</a>
+    </article>
+
+    <article class="card">
+      <div class="icon">🌿</div>
+      <h3>Kopsht dhe oborr</h3>
+      <p>Mirëmbajtje gjelbërimi dhe hapësirash të jashtme.</p>
+      <a href="#kerkesa">Kërko shërbim →</a>
+    </article>
+
+    <article class="card">
+      <div class="icon">🚚</div>
+      <h3>Transport</h3>
+      <p>Transport mobiliesh dhe shërbime shpërnguljeje.</p>
+      <a href="#kerkesa">Kërko shërbim →</a>
+    </article>
+
+    <article class="card">
+      <div class="icon">🏢</div>
+      <h3>Shërbime për biznese</h3>
+      <p>Mirëmbajtje, montime dhe shërbime për kompani.</p>
+      <a href="#kerkesa">Kërko shërbim →</a>
+    </article>
+  </div>
+</section>
+
+<section class="steps" id="si-funksionon">
+  <div class="section-title">
+    <h2>Si funksionon KerkoKS?</h2>
+    <p>Tri hapa të thjeshtë për të gjetur profesionistin.</p>
+  </div>
+
+  <div class="cards">
+    <article class="card">
+      <div class="number">1</div>
+      <h3>Publiko kërkesën</h3>
+      <p>Na trego çfarë shërbimi të duhet dhe ku.</p>
+    </article>
+
+    <article class="card">
+      <div class="number">2</div>
+      <h3>Merr interesim</h3>
+      <p>Profesionistët e përshtatshëm mund të kontaktojnë.</p>
+    </article>
+
+    <article class="card">
+      <div class="number">3</div>
+      <h3>Zgjidh profesionistin</h3>
+      <p>Krahaso ofertat dhe vendos me kë dëshiron të punosh.</p>
+    </article>
+  </div>
+</section>
+
+<section id="profesionistet">
+  <div class="section-title">
+    <h2>Paketa për profesionistët</h2>
+    <p>Zgjidh mënyrën si dëshiron të marrësh kërkesa të reja.</p>
+  </div>
+
+  <div class="cards">
+    <article class="card plan">
+      <span class="plan-label">BASIC</span>
+      <h3>Shumë mundësi</h3>
+      <p>Kërkesat ndahen me disa profesionistë.</p>
+      <ul>
+        <li>Konkurrencë më e madhe</li>
+        <li>Kredi të parapaguara</li>
+        <li>Qasje në kërkesa të përbashkëta</li>
+      </ul>
+    </article>
+
+    <article class="card plan featured">
+      <span class="plan-label">PRO</span>
+      <h3>Më pak konkurrencë</h3>
+      <p>Kërkesat u shfaqen një numri të kufizuar profesionistësh.</p>
+      <ul>
+        <li>Më pak konkurrencë</li>
+        <li>Kredi të parapaguara</li>
+        <li>Qasje e kufizuar në kërkesa</li>
+      </ul>
+    </article>
+
+    <article class="card plan">
+      <span class="plan-label">PREMIUM</span>
+      <h3>Kërkesa ekskluzive</h3>
+      <p>Një kërkesë i caktohet vetëm një profesionisti.</p>
+      <ul>
+        <li>Ekskluzivitet i kërkesës</li>
+        <li>Më pak konkurrencë</li>
+        <li>Qasje sipas rregullave të platformës</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="cta">
+    <div>
+      <h2>Je profesionist në Kosovë?</h2>
+      <p>
+        Gjej klientë të rinj dhe rrit biznesin tënd
+        me KerkoKS.
+      </p>
+    </div>
+    <a class="btn" href="mailto:partner@kerkoks.example">
+      Bëhu partner →
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="logo">Kerko<span>KS</span></div>
+  <p>Platformë për lidhjen e klientëve me profesionistë në Kosovë.</p>
+  <p>© <span id="year"></span> KerkoKS. Të gjitha të drejtat e rezervuara.</p>
+  <p>Shënim: kjo është një faqe demonstrimi.</p>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+document.getElementById("requestForm").addEventListener(
+  "submit",
+  function(event) {
+    event.preventDefault();
+
+    document.getElementById("notice").style.display = "block";
+  }
+);
+</script>
+
+</body>
+</html>
