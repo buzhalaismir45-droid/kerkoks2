@@ -543,17 +543,52 @@ footer p {
 </footer>
 
 <script>
-document.getElementById("year").textContent =
-  new Date().getFullYear();
 
-document.getElementById("requestForm").addEventListener(
-  "submit",
-  function(event) {
-    event.preventDefault();
+const requestForm = document.getElementById("requestForm");
+const notice = document.getElementById("notice");
 
-    document.getElementById("notice").style.display = "block";
+requestForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const service = document.getElementById("service").value;
+  const city = document.getElementById("city").value;
+  const details = document.getElementById("details").value.trim();
+  const customerName = document.getElementById("customerName").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const email = document.getElementById("email").value.trim();
+
+  if (!service || !city || !details || !customerName || !phone) {
+    notice.hidden = false;
+    notice.textContent = "Ju lutem plotësoni të gjitha fushat e detyrueshme.";
+    return;
   }
-);
+
+  const message =
+    "KËRKESË E RE - KerkoKS\n\n" +
+    "Shërbimi: " + service + "\n" +
+    "Qyteti: " + city + "\n" +
+    "Përshkrimi: " + details + "\n" +
+    "Emri: " + customerName + "\n" +
+    "Telefoni: " + phone + "\n" +
+    "E-mail: " + (email || "Nuk është dhënë");
+
+  notice.hidden = false;
+  notice.textContent = "Kërkesa u përgatit. Zgjidh WhatsApp për ta dërguar.";
+
+  const whatsappUrl =
+    "https://wa.me/?text=" + encodeURIComponent(message);
+
+  const link = document.createElement("a");
+  link.href = whatsappUrl;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = "Dërgo kërkesën në WhatsApp";
+  link.className = "btn";
+
+  notice.appendChild(document.createElement("br"));
+  notice.appendChild(link);
+});
+
 </script>
 
 </body>
