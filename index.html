@@ -342,51 +342,60 @@ footer p {
     </a>
   </div>
 
-  <form class="form-card" id="requestForm">
-    <h2>Çfarë shërbimi të duhet?</h2>
-    <p>Plotëso detajet e kërkesës tënde.</p>
 
-    <label for="service">Kategoria</label>
-    <select id="service" required>
-      <option value="">Zgjidh shërbimin</option>
-      <option>Pastrim</option>
-      <option>Hidraulik</option>
-      <option>Elektricist</option>
-      <option>Ndërtim dhe renovim</option>
-      <option>Kopsht dhe oborr</option>
-      <option>Transport dhe shpërngulje</option>
-      <option>Mirëmbajtje objektesh</option>
-      <option>Tjetër</option>
-    </select>
+<form class="form-card" id="requestForm">
+  <h2>Çfarë shërbimi të duhet?</h2>
+  <p>Plotëso detajet dhe kontakto profesionistët në Kosovë.</p>
 
-    <label for="city">Qyteti</label>
-    <select id="city" required>
-      <option value="">Zgjidh qytetin</option>
-      <option>Prishtinë</option>
-      <option>Prizren</option>
-      <option>Pejë</option>
-      <option>Gjakovë</option>
-      <option>Klinë</option>
-      <option>Ferizaj</option>
-      <option>Gjilan</option>
-      <option>Mitrovicë</option>
-      <option>Tjetër</option>
-    </select>
+  <label for="service">Kategoria</label>
+  <select id="service" name="service" required>
+    <option value="">Zgjidh shërbimin</option>
+    <option>Pastrim</option>
+    <option>Hidraulik</option>
+    <option>Elektricist</option>
+    <option>Ndërtim dhe renovim</option>
+    <option>Kopsht dhe oborr</option>
+    <option>Transport dhe shpërngulje</option>
+    <option>Mirëmbajtje objektesh</option>
+    <option>Tjetër</option>
+  </select>
 
-    <label for="details">Përshkrimi i punës</label>
-    <textarea id="details" rows="3"
-      placeholder="Çfarë pune duhet të kryhet?"
-      required></textarea>
+  <label for="city">Qyteti</label>
+  <select id="city" name="city" required>
+    <option value="">Zgjidh qytetin</option>
+    <option>Prishtinë</option>
+    <option>Prizren</option>
+    <option>Pejë</option>
+    <option>Gjakovë</option>
+    <option>Klinë</option>
+    <option>Ferizaj</option>
+    <option>Gjilan</option>
+    <option>Mitrovicë</option>
+    <option>Tjetër</option>
+  </select>
 
-    <button class="btn" type="submit">
-      Vazhdo →
-    </button>
+  <label for="details">Përshkrimi i punës</label>
+  <textarea id="details" name="details" rows="4"
+    placeholder="Përshkruaj punën që duhet të kryhet..."
+    required></textarea>
 
-    <div class="notice" id="notice">
-      Kjo është një demo. Kërkesa nuk është dërguar
-      ende te profesionistët.
-    </div>
-  </form>
+  <label for="customerName">Emri dhe mbiemri</label>
+  <input id="customerName" name="customerName"
+    type="text" placeholder="Emri yt" required>
+
+  <label for="phone">Numri i telefonit</label>
+  <input id="phone" name="phone" type="tel"
+    placeholder="+383 4X XXX XXX" required>
+
+  <label for="email">E-mail (opsionale)</label>
+  <input id="email" name="email" type="email"
+    placeholder="emri@example.com">
+
+  <button class="btn" type="submit">Dërgo kërkesën →</button>
+
+  <p id="notice" class="notice" role="status" hidden></p>
+</form>
+
 </section>
 
 <section id="sherbimet">
